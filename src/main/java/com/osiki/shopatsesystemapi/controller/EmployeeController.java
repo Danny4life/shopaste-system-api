@@ -1,7 +1,10 @@
 package com.osiki.shopatsesystemapi.controller;
 
 
+import com.osiki.shopatsesystemapi.model.EmployeeModel;
 import com.osiki.shopatsesystemapi.services.EmployeeService;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,5 +16,10 @@ public class EmployeeController {
 
     public EmployeeController(EmployeeService employeeService) {
         this.employeeService = employeeService;
+    }
+
+    @PostMapping("/employees")
+    public EmployeeModel createEmployee(@RequestBody EmployeeModel employeeModel){
+        return employeeService.createEmployee(employeeModel);
     }
 }
