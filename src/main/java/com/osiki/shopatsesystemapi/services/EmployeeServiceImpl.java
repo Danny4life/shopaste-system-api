@@ -6,6 +6,8 @@ import com.osiki.shopatsesystemapi.repository.EmployeeRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class EmployeeServiceImpl implements EmployeeService{
 
@@ -23,5 +25,10 @@ public class EmployeeServiceImpl implements EmployeeService{
         BeanUtils.copyProperties(employeeModel, employeeEntity);
         employeeRepository.save(employeeEntity);
         return employeeModel;
+    }
+
+    @Override
+    public List<EmployeeModel> getAllEmployes() {
+        return null;
     }
 }
